@@ -1,4 +1,4 @@
-package io.spacecowboyapps.pugcomponents
+package io.spacecowboyapps.pugs
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("io.spacecowboyapps.pugcomponents", appContext.packageName)
+        assertEquals("io.spacecowboyapps.pugs", appContext.packageName)
     }
 }

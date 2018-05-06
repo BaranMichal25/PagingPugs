@@ -1,4 +1,4 @@
-package io.spacecowboyapps.pugcomponents
+package io.spacecowboyapps.pugs
 
 import org.junit.Test
 
