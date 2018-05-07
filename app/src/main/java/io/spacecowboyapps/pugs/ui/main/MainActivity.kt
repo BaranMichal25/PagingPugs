@@ -1,9 +1,10 @@
-package io.spacecowboyapps.pugs
+package io.spacecowboyapps.pugs.ui.main
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import io.spacecowboyapps.pugs.R
+import io.spacecowboyapps.pugs.ui.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -17,9 +17,9 @@ class PugsApplication : Application() {
     private fun initDagger() {
         applicationComponent =
                 DaggerApplicationComponent
-                        .builder()
-                        .applicationModule(ApplicationModule(this))
-                        .build()
+                    .builder()
+                    .applicationModule(ApplicationModule(this))
+                    .build()
         applicationComponent.inject(this)
     }
 
