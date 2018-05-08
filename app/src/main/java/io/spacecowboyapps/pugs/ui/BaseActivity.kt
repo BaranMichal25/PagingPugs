@@ -21,8 +21,9 @@ abstract class BaseActivity : AppCompatActivity() {
             .builder()
             .applicationComponent((application as PugsApplication).getComponent())
             .build()
-        when (this) {
-            is MainActivity -> activityComponent.inject(this)
-        }
+
+        injectActivity(activityComponent)
     }
+
+    abstract fun injectActivity(component: ActivityComponent)
 }
