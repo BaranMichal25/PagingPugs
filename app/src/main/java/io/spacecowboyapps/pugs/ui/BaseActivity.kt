@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import io.spacecowboyapps.pugs.PugsApplication
 import io.spacecowboyapps.pugs.di.component.ActivityComponent
 import io.spacecowboyapps.pugs.di.component.DaggerActivityComponent
-import io.spacecowboyapps.pugs.ui.main.MainActivity
 
 abstract class BaseActivity : AppCompatActivity() {
 
