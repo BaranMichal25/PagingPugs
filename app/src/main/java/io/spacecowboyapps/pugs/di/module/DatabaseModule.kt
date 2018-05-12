@@ -8,7 +8,6 @@ import dagger.Reusable
 import io.spacecowboyapps.pugs.data.db.Database
 import io.spacecowboyapps.pugs.data.db.Database.Companion.DATABASE_NAME
 import io.spacecowboyapps.pugs.di.ApplicationContext
-import javax.inject.Singleton
 
 
 @Module
