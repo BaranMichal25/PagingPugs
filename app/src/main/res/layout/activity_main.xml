@@ -12,14 +12,13 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="5dp"
+        android:visibility="gone"
         android:indeterminate="true" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        tools:listitem="@layout/item"
-        tools:visibility="visible" />
+        tools:listitem="@layout/item" />
 </LinearLayout>

@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView_pug_background"
+        android:id="@+id/imageView_background"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:contentDescription="@string/background"
@@ -13,7 +13,7 @@
         tools:src="@drawable/placeholder" />
 
     <TextView
-        android:id="@+id/textView_pug_name"
+        android:id="@+id/textView_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/default_padding"

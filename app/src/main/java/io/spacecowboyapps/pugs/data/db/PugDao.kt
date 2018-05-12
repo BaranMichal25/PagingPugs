@@ -1,6 +1,6 @@
 package io.spacecowboyapps.pugs.data.db
 
-import android.arch.lifecycle.LiveData
+import android.arch.paging.DataSource
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
@@ -11,5 +11,5 @@ interface PugDao {
     fun insertAll(pugs: List<Pug>)
 
     @Query("SELECT * FROM pug")
-    fun getAll(): LiveData<List<Pug>>
+    fun getAll(): DataSource.Factory<Int, Pug>
 }
