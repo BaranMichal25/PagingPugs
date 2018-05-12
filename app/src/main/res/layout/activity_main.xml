@@ -20,6 +20,6 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        tools:listitem="@layout/pug_item"
+        tools:listitem="@layout/item"
         tools:visibility="visible" />
 </LinearLayout>

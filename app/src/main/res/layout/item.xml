@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:contentDescription="@string/background"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        tools:src="@drawable/placeholder" />
 
     <TextView
         android:id="@+id/textView_pug_name"
