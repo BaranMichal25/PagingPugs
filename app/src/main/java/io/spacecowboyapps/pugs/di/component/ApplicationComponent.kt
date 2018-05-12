@@ -25,7 +25,5 @@ interface ApplicationComponent {
 
     fun picasso(): Picasso
 
-    fun database(): Database
-
     fun repository(): Repository
 }
