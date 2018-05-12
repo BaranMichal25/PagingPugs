@@ -8,7 +8,8 @@ import javax.inject.Inject
 
 class AppPreferences
 @Inject constructor(
-    @ApplicationContext context: Context) : Preferences {
+    @ApplicationContext context: Context
+) : Preferences {
 
     private val preferences by lazy { getDefaultSharedPreferences(context) }
 

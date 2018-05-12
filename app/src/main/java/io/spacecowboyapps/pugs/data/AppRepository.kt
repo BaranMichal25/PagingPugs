@@ -16,7 +16,8 @@ class AppRepository
 @Inject constructor(
     private val appRestClient: AppClient,
     private val database: Database,
-    private val preferences: Preferences) : Repository {
+    private val preferences: Preferences
+) : Repository {
 
     override fun getPugs(): LiveData<PagedList<Pug>> {
         val dao = database.pugDao()
@@ -26,6 +27,7 @@ class AppRepository
                 .subscribeOn(Schedulers.io())
                 .subscribe({
                     Log.i(TAG, "Updating database with ${it.size} pugs")
+                    dao.deleteAll()
                     dao.insertAll(it)
                     preferences.putLastUpdate(System.currentTimeMillis())
                 }, {
@@ -33,7 +35,7 @@ class AppRepository
                 })
         }
 
-        return LivePagedListBuilder(dao.getAll(), 10).build()
+        return LivePagedListBuilder(dao.getAllAsDataSource(), 10).build()
     }
 
     private fun updateNeeded(): Boolean {

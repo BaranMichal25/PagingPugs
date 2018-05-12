@@ -1,9 +1,9 @@
 package io.spacecowboyapps.pugs.ui.main
 
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import io.spacecowboyapps.pugs.R
-import io.spacecowboyapps.pugs.data.Repository
 import io.spacecowboyapps.pugs.di.component.ActivityComponent
 import io.spacecowboyapps.pugs.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -12,7 +12,7 @@ import javax.inject.Inject
 class MainActivity : BaseActivity() {
 
     @Inject
-    lateinit var repository: Repository
+    lateinit var factory: MainViewModelFactory
 
     @Inject
     lateinit var adapter: MainAdapter
@@ -21,7 +21,9 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        repository.getPugs().observe(this, Observer { // TODO ViewModel
+        val viewModel = ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
+
+        viewModel.pugsList.observe(this, Observer {
             adapter.submitList(it)
         })
 

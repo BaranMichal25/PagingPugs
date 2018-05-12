@@ -10,6 +10,9 @@ interface PugDao {
     @Insert
     fun insertAll(pugs: List<Pug>)
 
+    @Query("DELETE FROM pug")
+    fun deleteAll()
+
     @Query("SELECT * FROM pug")
-    fun getAll(): DataSource.Factory<Int, Pug>
+    fun getAllAsDataSource(): DataSource.Factory<Int, Pug>
 }
