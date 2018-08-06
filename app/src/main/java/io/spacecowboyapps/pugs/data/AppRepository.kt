@@ -5,6 +5,7 @@ import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PagedList
 import android.text.format.DateUtils
 import android.util.Log
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.spacecowboyapps.pugs.data.db.Database
 import io.spacecowboyapps.pugs.data.db.Pug
@@ -19,10 +20,12 @@ class AppRepository
     private val preferences: Preferences
 ) : Repository {
 
+    private val disposable = CompositeDisposable()
+
     override fun getPugs(): LiveData<PagedList<Pug>> {
         val dao = database.pugDao()
         if (updateNeeded()) {
-            appRestClient.getPugs()
+            disposable.add(appRestClient.getPugs()
                 .observeOn(Schedulers.io())
                 .subscribeOn(Schedulers.io())
                 .subscribe({
@@ -32,7 +35,7 @@ class AppRepository
                     preferences.putLastUpdate(System.currentTimeMillis())
                 }, {
                     Log.e(TAG, "Handle errors in future", it)
-                })
+                }))
         }
 
         return LivePagedListBuilder(dao.getAllAsDataSource(), 10).build()
@@ -41,6 +44,10 @@ class AppRepository
     private fun updateNeeded(): Boolean {
         val now = System.currentTimeMillis()
         return now - preferences.getLastUpdate() > DateUtils.MINUTE_IN_MILLIS * 5
+    }
+
+    override fun onCleared() {
+        disposable.dispose()
     }
 
     private companion object {

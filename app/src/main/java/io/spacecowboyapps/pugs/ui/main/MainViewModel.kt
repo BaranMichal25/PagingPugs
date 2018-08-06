@@ -6,7 +6,14 @@ import android.arch.paging.PagedList
 import io.spacecowboyapps.pugs.data.Repository
 import io.spacecowboyapps.pugs.data.db.Pug
 
-class MainViewModel(repository: Repository) : ViewModel() {
+class MainViewModel(
+    private val repository: Repository
+) : ViewModel() {
 
     val pugsList: LiveData<PagedList<Pug>> = repository.getPugs()
+
+    override fun onCleared() {
+        super.onCleared()
+        repository.onCleared()
+    }
 }
